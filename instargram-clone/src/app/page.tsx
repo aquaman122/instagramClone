@@ -1,4 +1,5 @@
 import { AiFillFacebook } from 'react-icons/ai';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
                       <input className='w-64 h-9 border border-gray-300 rounded-sm bg-gray-100 text-sm pl-2' placeholder='비밀번호' type="text" required />
                   </div>
                   <div className='mb-4'>
-                    <button className='w-64 h-8 border bg-sky-500 rounded-md text-white text-sm'>로그인</button>
+                    <Link href=""><button className='w-64 h-8 border bg-sky-500 rounded-md text-white text-sm'>로그인</button></Link>
                   </div>
                   <div className='flex items-center mb-8'>
                     <div className='h-px border border-gray-300 w-24'></div>
