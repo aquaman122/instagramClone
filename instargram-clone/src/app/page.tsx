@@ -25,10 +25,10 @@ export default function page() {
                   </div>
 
                   <div className='mb-4'>
-                      <input className='w-64 h-9 border border-gray-300 rounded-sm bg-gray-100 text-sm pl-2' placeholder='비밀번호' type="text" required />
+                      <input className='w-64 h-9 border border-gray-300 rounded-sm bg-gray-100 text-sm pl-2' placeholder='비밀번호' type="password" required />
                   </div>
                   <div className='mb-4'>
-                    <Link href="/mainpage"><button className='w-64 h-8 border bg-sky-500 rounded-md text-white text-sm'>로그인</button></Link>
+                    <Link href="/home"><button className='w-64 h-8 border bg-sky-500 rounded-md text-white text-sm'>로그인</button></Link>
                   </div>
                   <div className='flex items-center mb-8'>
                     <div className='h-px border border-gray-300 w-24'></div>

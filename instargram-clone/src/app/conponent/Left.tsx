@@ -5,6 +5,7 @@ import {BiMoviePlay} from 'react-icons/bi';
 import {SlPaperPlane} from 'react-icons/sl';
 import {CgProfile} from 'react-icons/cg';
 import {RxHamburgerMenu} from 'react-icons/rx';
+import Link from 'next/link';
 
 type Props = {}
 
@@ -16,16 +17,16 @@ export default function Left({}: Props) {
         <div className='p-3 mb-3 sm:max-xl:hover:bg-stone-900 rounded-lg'>
           <a>
             <div className='xl:hidden hover:scale-110 ease-linear'><AiOutlineInstagram /></div>
-            <div className='sm:max-xl:hidden hover:cursor-pointer ease-linear text-xl mb-5'>Instagram</div>
+            <div className='sm:max-xl:hidden hover:cursor-pointer ease-linear text-xl mb-4'>Instagram</div>
           </a>
         </div>
 
         <div className='flex flex-col sm:max-xl:text-3xl xl:text-2xl'>
           <div className='p-3 hover:bg-stone-900 rounded-lg'>
-            <a className='xl:flex'>
+            <Link href="/home" className='xl:flex'>
               <div className='hover:scale-110 ease-linear'><AiFillHome /></div>
               <div className='pl-4 text-base sm:max-xl:hidden'>홈</div>
-            </a>
+            </Link>
           </div>
 
           <div className='p-3 hover:bg-stone-900 rounded-lg'>
