@@ -155,20 +155,32 @@ export default function page({}: Props) {
               ))}
             </ul>
 
-            <div></div>
+            <div className='bg-blue-700'>
+
+              <div className='max-w-lg'>
+
+                <div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+
+              </div>
+
+            </div>
           </div>
 
           <div className='w-full h-screen pt-8 pb-8'>
 
-            <div className='flex justify-between mt-4 mb-1'>
+            <div className='flex mt-4 mb-1'>
               <div>
                 <img src={users[7].image_url} className="w-16 h-16 rounded-full object-cover" />
               </div>
-              <div className='w-40 flex flex-col justify-center pl-4 text-sm text-white'>
+              <div className='w-9/12 flex flex-col justify-center pl-4 text-sm text-white'>
                 <div>jj__n23</div>
                 <div>장석원</div>
               </div>
-              <div className='flex justify-center items-center text-xs text-blue-500'>전환</div>
+              <div className='w-7 flex justify-center items-center text-xs text-blue-500'>전환</div>
             </div>
 
             <div className='flex justify-between'>
@@ -183,7 +195,7 @@ export default function page({}: Props) {
                   <div className='pr-3'>
                     <img src={users[0].image_url} className="w-10 h-10 rounded-full object-cover" />
                   </div>
-                  <div className='w-40 flex flex-col justify-center text-xs text-white'>
+                  <div className='w-9/12 flex flex-col justify-center text-xs text-white'>
                     <div>Aiony Haust</div>
                     <div className='text-gray-600 overflow-x-hidden'>joe_33님 외 1명이 팔로우합니다</div>
                   </div>
@@ -196,7 +208,7 @@ export default function page({}: Props) {
                   <div className='pr-3'>
                     <img src={users[1].image_url} className="w-10 h-10 rounded-full object-cover" />
                   </div>
-                  <div className='w-40 flex flex-col justify-center text-xs text-white'>
+                  <div className='w-9/12 flex flex-col justify-center text-xs text-white'>
                     <div>joel_mott</div>
                     <div className='text-gray-600 overflow-x-hidden'>joe_33님 외 1명이 팔로우합니다</div>
                   </div>
@@ -209,7 +221,7 @@ export default function page({}: Props) {
                   <div className='pr-3'>
                     <img src={users[2].image_url} className="w-10 h-10 rounded-full object-cover" />
                   </div>
-                  <div className='w-40 flex flex-col justify-center text-xs text-white'>
+                  <div className='w-9/12 flex flex-col justify-center text-xs text-white'>
                     <div>alex_suprun</div>
                     <div className='text-gray-600 overflow-x-hidden'>회원님을 팔로우합니다.</div>
                   </div>
@@ -222,7 +234,7 @@ export default function page({}: Props) {
                   <div className='pr-3'>
                     <img src={users[3].image_url} className="w-10 h-10 rounded-full object-cover" />
                   </div>
-                  <div className='w-40 flex flex-col justify-center text-xs text-white'>
+                  <div className='w-9/12 flex flex-col justify-center text-xs text-white'>
                     <div>vince_fleming</div>
                     <div className='text-gray-600 overflow-x-hidden'>회원님을 팔로우합니다.</div>
                   </div>
@@ -235,7 +247,7 @@ export default function page({}: Props) {
                   <div className='pr-3'>
                     <img src={users[4].image_url} className="w-10 h-10 rounded-full object-cover" />
                   </div>
-                  <div className='w-40 flex flex-col justify-center text-xs text-white'>
+                  <div className='w-9/12 flex flex-col justify-center text-xs text-white'>
                     <div>huston_wilson</div>
                     <div className='text-gray-600 overflow-x-hidden'>회원님을 위한 추천</div>
                   </div>
@@ -245,9 +257,9 @@ export default function page({}: Props) {
         
             </div>
 
-            <div className='w-full text-white'>
+            <div className='flex flex-col w-full text-gray-500 text-xs mt-10'>
               <div>
-                <ul>
+                  <ul>
                   <li>소개</li>
                   <li>도움말</li>
                   <li>홍보센터</li>
