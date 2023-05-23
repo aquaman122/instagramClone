@@ -160,7 +160,7 @@ export default function page({}: Props) {
               <div className='max-w-lg'>
 
                 <div>
-                  <div></div>
+                  <div>ㄹㅇㅁㄴㄹㅁㄴㅇ</div>
                   <div></div>
                   <div></div>
                 </div>
