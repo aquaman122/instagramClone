@@ -1,12 +1,12 @@
 'use client'
 import React, { useState } from 'react';
 import {CgProfile} from 'react-icons/cg';
-import Left from '../../conponent/Left';
+import Left from '../../conponent/Left/page';
 
 
 type Props = {}
 
-export default function page({}: Props) {
+export default function MainPage({}: Props) {
   const users = [
     {
       id: 1,
@@ -160,7 +160,7 @@ export default function page({}: Props) {
               <div className='max-w-lg'>
 
                 <div>
-                  <div>ㄹㅇㅁㄴㄹㅁㄴㅇ</div>
+                  <div></div>
                   <div></div>
                   <div></div>
                 </div>
@@ -170,7 +170,7 @@ export default function page({}: Props) {
             </div>
           </div>
 
-          <div className='w-full h-screen pt-8 pb-8'>
+          <div className='w-full h-screen pt-8 pb-8 max-w-sm:hidden'>
 
             <div className='flex mt-4 mb-1'>
               <div>
