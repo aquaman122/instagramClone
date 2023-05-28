@@ -132,7 +132,7 @@ export default function MainPage({}: Props) {
   
   return (
     <>
-      <article className='flex bg-black'>
+      {/* <article className='flex bg-black'>
         <Left />
         <div className='flex-1 mr-14 ml-14 flex'>
 
@@ -277,7 +277,7 @@ export default function MainPage({}: Props) {
           </div>
 
         </div>
-      </article>
+      </article> */}
     </>
   )
 }

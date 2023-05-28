@@ -1,29 +1,22 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import {AiFillFacebook} from 'react-icons/ai'
-import Button from '../../conponent/Button/page';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 type Props = {}
 
 export default function SingUp({}: Props) {
-
-  const auth = getAuth();
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      console.log(userCredential);
-    })
+ 
 
   const { register, handleSubmit } = useForm();
 
-  const onVaild = (data: any) => {
-    console.log(data);
+  const onSubmit = (data: any) => {
+  
   }
 
   return (
     <>
-      <div className='w-screen h-screen flex justify-center mt-5'>
+      {/* <div className='w-screen h-screen flex justify-center mt-5'>
         <div>
 
         <div className='w-80 flex flex-col items-center shrink-0 border border-stone-300 rounded-sm text-center box-border'>
@@ -41,7 +34,7 @@ export default function SingUp({}: Props) {
           </div>
 
           <form 
-          onSubmit={handleSubmit(onVaild)}
+          onSubmit={handleSubmit(onSubmit)}
           className='flex flex-col items-center'>
           
             <div className='mb-2'>
@@ -103,7 +96,7 @@ export default function SingUp({}: Props) {
           </div>
         </div>
         </div>
-      </div>  
+      </div>   */}
     </>
   )
 } 

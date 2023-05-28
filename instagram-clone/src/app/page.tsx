@@ -8,12 +8,10 @@ type Props = {}
 
 export default function HomePage({}: Props) {
 
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
 
   return (
     <>
-      {isAuthenticated ? <Feed /> : <Auth />}
+      hi
     </>
   )
 }

@@ -1,5 +1,4 @@
 'use client'
-import { AiFillFacebook } from 'react-icons/ai';
 import Link from 'next/link';
 import Lottie from 'react-lottie-player'
 import animation from '../../../public/animations/auth-pages-animation.json';
