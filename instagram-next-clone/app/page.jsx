@@ -2,15 +2,16 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Lottie from 'react-lottie-player'
-import animation from '../../public/animations/auth-pages-animation';
+import animation from '../public/animation/auth-animation';
 import { AiFillFacebook } from 'react-icons/ai';
 import { useForm } from 'react-hook-form';
+import Button from './component/button/Button';
 
 export default function Home() {
   const { register, handleSubmit } = useForm();
 
   const onVaild = (data) => {
-
+    console.log(data);
   }
 
   const [isAuthentic, setIsAuthentic] = useState(false);
@@ -34,7 +35,6 @@ export default function Home() {
           <div className='flex flex-col items-center shrink-0 border border-stone-300 rounded-sm text-center box-border'>
             <div className='h-24 text-4xl mt-12'>Instagram</div>
             <form onSubmit={handleSubmit(onVaild)} className='flex flex-col items-center'>
-
               <div>
                 <div className='mb-2'>
                   <input {...register('email')} className='w-64 h-9 border border-gray-300 rounded-sm bg-gray-100 text-sm pl-2' placeholder='전화번호, 사용자 이름 또는 이메일' type="email" id='email' name='email' required />
@@ -43,9 +43,7 @@ export default function Home() {
                 <div className='mb-4'>
                   <input {...register('password')} className='w-64 h-9 border border-gray-300 rounded-sm bg-gray-100 text-sm pl-2' placeholder='비밀번호' type="password" id="password" name='password' required />
                 </div>            
-                <button 
-                type='submit' 
-                className='w-64 h-8 border bg-sky-500 rounded-md text-white text-sm active:scale-95 transition hover:cursor-pointer'>로그인</button>
+                <Button buttonText="로그인" />
                 <div className='flex items-center mt-4 mb-8'>
                   <div className='h-px border border-gray-300 w-24'></div>
                   <div className='pl-4 pr-4 text-sm text-gray-500'>또는</div>

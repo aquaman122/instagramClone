@@ -9,15 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "autoprefixer": "10.4.14",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "next": "13.4.4",
-    "postcss": "8.4.23",
+    "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.44.1",
-    "react-icons": "^4.8.0",
+    "react-hook-form": "^7.44.2",
+    "react-icons": "^4.9.0",
     "react-lottie-player": "^1.5.4"
   },
   "devDependencies": {
