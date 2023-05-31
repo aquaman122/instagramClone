@@ -3,7 +3,7 @@ import users from '@/app/mainpage/data'
 
 export default function Header() {
   return (
-    <section className='mt-2.5 mr-16 w-full max-w-2xl'>
+    <section className='mt-2.5 mr-2.5 w-full max-w-2xl'>
       <ul className='flex justify-between items-start mb-8 space-x-3 overflow-scroll bg-parent pt-4 rounded drop-shadow-xl'>
         {users.map((user) => (
           <li key={user.id} className="flex flex-none flex-col items-center space-y-1">
@@ -20,20 +20,6 @@ export default function Header() {
           </li>
         ))}
       </ul>
-
-      <div className='bg-blue-700'>
-
-        <div className='max-w-lg'>
-
-          <div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-
-        </div>
-
-      </div>
     </section>
   )
 }
