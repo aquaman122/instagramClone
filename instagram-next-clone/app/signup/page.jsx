@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import {AiFillFacebook} from 'react-icons/ai'
 import { useRouter } from 'next/navigation';
-import { initFirebase } from '../firebase/firebaseApp';
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { auth, db } from '../firebase/firebaseApp';
 import { collection, addDoc } from 'firebase/firestore';
 
 
@@ -13,19 +13,9 @@ export default function SingUp() {
 
   const router = useRouter();
 
-  const app = initFirebase();
-  const auth = getAuth();
-
   const signUp = (data) => {
     const email = data.email;
     const password = data.password;
-    const name = data.name;
-    const nickname = data.nickname;
-
-    const docRef = addDoc(collection(db, "users"), {
-      name: name,
-      nickname: nickname
-    });
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {

@@ -7,12 +7,10 @@ import { AiFillFacebook } from 'react-icons/ai';
 import { useForm } from 'react-hook-form';
 import Button from '../button/Button';
 import { useRouter } from 'next/navigation';
-import { initFirebase } from '@/app/firebase/firebaseApp';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '@/app/firebase/firebaseApp';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 export default function Auth() {
-  const app = initFirebase();
-  const auth = getAuth();
 
   const router = useRouter();
   const { register, handleSubmit } = useForm();
