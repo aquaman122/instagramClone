@@ -9,7 +9,7 @@ export default function Nav() {
   
   return (
     <>
-      <div className='xl:w-60 flex flex-col sm:max-xl:items-center bg-black w-20 h-screen sticky text-white pt-2 pl-3 pr-3 pb-5 text-3xl border-r border-gray-700'>
+      <div className='xl:w-60 flex flex-col sm:max-xl:items-center bg-black w-20 h-screen text-white pt-2 pl-3 pr-3 pb-5 text-3xl border-r border-gray-700 fixed'>
 
         <div className='p-3 mb-3 sm:max-xl:hover:bg-stone-900 rounded-lg'>
           <a>

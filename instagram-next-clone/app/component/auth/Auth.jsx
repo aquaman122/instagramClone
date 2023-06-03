@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Link from 'next/link';
 import Lottie from 'react-lottie-player'
 import animation from '../../../public/animation/auth-animation';
@@ -9,16 +9,26 @@ import Button from '../button/Button';
 import { useRouter } from 'next/navigation';
 import { auth } from '@/app/firebase/firebaseApp';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { GlobalDispatchContext, GlobalStateContext } from '@/app/state/context/GlobalContextProvider';
+import LoadingOverlay from '../loading-overlay/LoadingOverlay';
 
 export default function Auth() {
+  const {isAuthenticated, isOnboarded, user, isLoading} = useContext(GlobalStateContext);
+
+  const dispatch = useContext(GlobalDispatchContext);
 
   const router = useRouter();
   const { register, handleSubmit } = useForm();
+  
+  const onVaild = async (data) => {
+    dispatch({
+      type: 'SET_LOADING',
+      payload: {
+        isLoading: true
+      }
+    })
 
-  const onVaild = (data) => {
-    const email = data.email;
-    const password = data.password;
-    signInWithEmailAndPassword(auth, email, password)
+    await signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         const user = userCredential.user;
         router.push('/mainpage');
@@ -39,7 +49,8 @@ export default function Auth() {
         />
       </div>
 
-      <div className="w-4/5 h-4/5 max-lg:flex max-lg:justify-center">
+      <div className="w-4/5 h-4/5 max-lg:flex max-lg:justify-center relative">
+        {isLoading && <LoadingOverlay /> }
 
         <div className='w-80 max-w-sm'>
 

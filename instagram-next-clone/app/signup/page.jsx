@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { auth, db } from '../firebase/firebaseApp';
 import { collection, addDoc } from 'firebase/firestore';
+import Link from 'next/link';
 
 
 export default function SingUp() {
@@ -13,11 +14,8 @@ export default function SingUp() {
 
   const router = useRouter();
 
-  const signUp = (data) => {
-    const email = data.email;
-    const password = data.password;
-
-    createUserWithEmailAndPassword(auth, email, password)
+  const signUp = async (data) => {
+    await createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         const user = userCredential.user;
         router.push('/');
@@ -97,7 +95,7 @@ export default function SingUp() {
         <div className='flex justify-center items-center border border-stone-300 mt-4 h-16'>
           <span className='flex text-sm'>
             <p className='pr-1'>계정이 있으신가요?</p>
-            <span className='text-blue-500 font-bold hover:cursor-pointer'>로그인</span>
+            <Link href="/"><span className='text-blue-500 font-bold hover:cursor-pointer'>로그인</span></Link>
           </span>
         </div>
 

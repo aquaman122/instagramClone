@@ -1,7 +1,6 @@
+'use client'
 import React, { createContext, useReducer } from 'react'
-
-export const GlobaStatelContext = createContext(null);
-export const GlobalDispatchContext = createContext(null);
+import { globalReducer } from '../reducers/GlobalReducer';
 
 const intialState = {
   user: {},
@@ -10,15 +9,19 @@ const intialState = {
   isLoading: false
 }
 
+export const GlobalStateContext = createContext(intialState);
+export const GlobalDispatchContext = createContext(null);
+
+
 export default function GlobalContextProvider({ children }) {
 
   const [state, dispatch] = useReducer(globalReducer, intialState);
   
   return (
-    <GlobaStatelContext.Provider>
-      <GlobalDispatchContext.Provider>
+    <GlobalStateContext.Provider value={state}>
+      <GlobalDispatchContext.Provider value={dispatch}>
         {children}
       </GlobalDispatchContext.Provider>
-    </GlobaStatelContext.Provider>
+    </GlobalStateContext.Provider>
   )
 }

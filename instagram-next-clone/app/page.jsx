@@ -1,16 +1,17 @@
 'use client'
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Auth from "./component/auth/Auth";
+import { GlobalStateContext } from "./state/context/GlobalContextProvider";
 
 export default function Home() {
   const router = useRouter();
 
-  const [isAuthentic, setIsAuthentic] = useState(false);
+  const { isAuthenticated } = useContext(GlobalStateContext);
 
   return (
     <>
-      {isAuthentic ? router.push('/mainpage') : <Auth />}
+      {isAuthenticated ? router.push('/mainpage') : <Auth />}
     </>
   )
 }
