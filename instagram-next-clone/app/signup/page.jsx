@@ -14,7 +14,14 @@ export default function SingUp() {
 
   const router = useRouter();
 
+  const fetchUser = async () => {
+
+  }
+
   const signUp = async (data) => {
+    
+    fetchUser();
+
     await createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         const user = userCredential.user;

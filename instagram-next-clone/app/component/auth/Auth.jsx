@@ -21,20 +21,21 @@ export default function Auth() {
   const { register, handleSubmit } = useForm();
   
   const onVaild = async (data) => {
-    dispatch({
-      type: 'SET_LOADING',
-      payload: {
-        isLoading: true
-      }
-    })
-
     await signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         const user = userCredential.user;
         router.push('/mainpage');
+
+        dispatch({
+          type: 'SET_LOADING',
+          payload: {
+            isLoading: true
+          }
+        });
+
       })
       .catch((error) => {
-        alert(error.message());
+        alert(error.message);
       })
   }
 
@@ -50,7 +51,7 @@ export default function Auth() {
       </div>
 
       <div className="w-4/5 h-4/5 max-lg:flex max-lg:justify-center relative">
-        {isLoading && <LoadingOverlay /> }
+        {isLoading && <LoadingOverlay />}
 
         <div className='w-80 max-w-sm'>
 
