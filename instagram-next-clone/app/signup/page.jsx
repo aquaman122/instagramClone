@@ -5,26 +5,18 @@ import {AiFillFacebook} from 'react-icons/ai'
 import { useRouter } from 'next/navigation';
 import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { auth, db } from '../firebase/firebaseApp';
-import { collection, addDoc, doc, getDoc } from 'firebase/firestore';
+import { collection, addDoc } from 'firebase/firestore';
 import Link from 'next/link';
-import fetchCurrentUsers from '../utils/fetchCurrentUsers';
 
 
 export default function SingUp() {
-  const { fetchUser } = fetchCurrentUsers();
   const { register, handleSubmit } = useForm();
 
   const router = useRouter();
 
+  
+
   const signUp = async (data) => {
-    try {
-      const docRef = await addDoc(collection(db, "users"), {
-        name : data.name,
-        nickname : data.nickname
-      });
-    } catch (e) {
-      
-    }
 
     await createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
@@ -32,9 +24,10 @@ export default function SingUp() {
         router.push('/');
       })
       .catch((error) => {
-        alert(error.message);
+        alert(error.message());
       });
-      fetchUser();
+
+      // fetchUser();
   }
 
   return (

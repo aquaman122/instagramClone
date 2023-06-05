@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import users from '@/app/mainpage/data'
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs, where } from 'firebase/firestore'
 import { db } from '@/app/firebase/firebaseApp'
 import { async } from '@firebase/util'
 
@@ -9,14 +9,12 @@ export default function NavBar() {
   const [name, setName] = useState('');
   const [nickname, setNickname] = useState('');
 
-  useEffect(async () => {
-    const querySnapshot = await getDocs(collection(db, "users"));
-    querySnapshot.forEach((doc) => {
-      setName(doc.data().name);
-      setNickname(doc.data().nickname);
-      console.log(doc.data());
-    })
-  }, []);
+  try {
+    const userCollection = collection(db, 'users');
+
+  } catch (error) {
+
+  }
 
   return (
     <div className='w-full h-screen pt-8 pb-8 max-w-md:hidden'>
