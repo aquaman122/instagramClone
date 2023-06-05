@@ -1,7 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import users from '@/app/mainpage/data'
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '@/app/firebase/firebaseApp'
+import { async } from '@firebase/util'
 
 export default function NavBar() {
+
+  const [name, setName] = useState('');
+  const [nickname, setNickname] = useState('');
+
+  useEffect(async () => {
+    const querySnapshot = await getDocs(collection(db, "users"));
+    querySnapshot.forEach((doc) => {
+      setName(doc.data().name);
+      setNickname(doc.data().nickname);
+      console.log(doc.data());
+    })
+  }, []);
+
   return (
     <div className='w-full h-screen pt-8 pb-8 max-w-md:hidden'>
 
@@ -10,8 +26,8 @@ export default function NavBar() {
           <img src={users[7].image_url} className="w-16 h-16 rounded-full object-cover" />
         </div>
         <div className='w-9/12 flex flex-col justify-center pl-4 text-sm text-white'>
-          <div>jj__n23</div>
-          <div>장석원</div>
+          <div>{nickname}</div>
+          <div>{name}</div>
         </div>
         <div className='w-7 flex justify-center items-center text-xs text-blue-500'>전환</div>
       </div>

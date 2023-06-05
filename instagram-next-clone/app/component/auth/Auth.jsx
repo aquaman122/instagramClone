@@ -7,7 +7,7 @@ import { AiFillFacebook } from 'react-icons/ai';
 import { useForm } from 'react-hook-form';
 import Button from '../button/Button';
 import { useRouter } from 'next/navigation';
-import { auth } from '@/app/firebase/firebaseApp';
+import { auth, db } from '@/app/firebase/firebaseApp';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { GlobalDispatchContext, GlobalStateContext } from '@/app/state/context/GlobalContextProvider';
 import LoadingOverlay from '../loading-overlay/LoadingOverlay';
