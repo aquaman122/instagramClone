@@ -9,13 +9,6 @@ export default function NavBar() {
   const [name, setName] = useState('');
   const [nickname, setNickname] = useState('');
 
-  try {
-    const userCollection = collection(db, 'users');
-
-  } catch (error) {
-
-  }
-
   return (
     <div className='w-full h-screen pt-8 pb-8 max-w-md:hidden'>
 

@@ -27,7 +27,7 @@ export default function SingUp() {
         alert(error.message());
       });
 
-      // fetchUser();
+      // fetchUser()
   }
 
   return (
