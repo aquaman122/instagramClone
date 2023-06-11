@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import users from '@/app/mainpage/data'
-import { collection, getDocs, where } from 'firebase/firestore'
+import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from '@/app/firebase/firebaseApp'
 import { async } from '@firebase/util'
 
 export default function NavBar() {
-
   const [name, setName] = useState('');
   const [nickname, setNickname] = useState('');
 
+  console.log(db);
+
+  
   return (
     <div className='w-full h-screen pt-8 pb-8 max-w-md:hidden'>
 
