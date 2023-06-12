@@ -5,7 +5,7 @@ import {AiFillFacebook} from 'react-icons/ai'
 import { useRouter } from 'next/navigation';
 import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { auth, db } from '../firebase/firebaseApp';
-import { collection, addDoc } from 'firebase/firestore';
+import { addDoc, setDoc, doc } from 'firebase/firestore';
 import Link from 'next/link';
 
 
@@ -26,6 +26,8 @@ export default function SingUp() {
       .catch((error) => {
         alert(error.message());
       });
+
+      await setDoc(doc(db, 'users', 'new-users-id'), data);
 
       // fetchUser()
   }

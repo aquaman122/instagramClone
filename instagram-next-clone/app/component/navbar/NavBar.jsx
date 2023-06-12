@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import users from '@/app/mainpage/data'
-import { doc, onSnapshot } from 'firebase/firestore'
+import { collection, doc, getDocs, onSnapshot, query, where } from 'firebase/firestore'
 import { db } from '@/app/firebase/firebaseApp'
 import { async } from '@firebase/util'
 
@@ -8,11 +8,15 @@ export default function NavBar() {
   const [name, setName] = useState('');
   const [nickname, setNickname] = useState('');
 
+  const onClick = () => {
+    
+  }
+
   return (
     <div className='w-full h-screen pt-8 pb-8 max-w-md:hidden'>
 
       <div className='flex mt-4 mb-1'>
-        <div>
+        <div onClick={onClick}>
           <img src={users[7].image_url} className="w-16 h-16 rounded-full object-cover" />
         </div>
         <div className='w-9/12 flex flex-col justify-center pl-4 text-sm text-white'>

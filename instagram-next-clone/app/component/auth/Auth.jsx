@@ -19,6 +19,10 @@ export default function Auth() {
 
   const router = useRouter();
   const { register, handleSubmit } = useForm();
+
+  const onClick = () => {
+
+  }
   
   const onVaild = async (data) => {
     await signInWithEmailAndPassword(auth, data.email, data.password)
