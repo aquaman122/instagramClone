@@ -18,19 +18,6 @@ export default function Compass() {
             : (<div></div>)}
           </div>
           <div className='w-full h-80 bg-white rounded-sm'></div>
-          <div className='w-full h-80 bg-white rounded-sm'></div>
-          <div className='w-full h-80 bg-white rounded-sm'></div>
-          <div className='w-full h-80 bg-white rounded-sm'></div>
-          <div className='w-full h-80 bg-white rounded-sm'></div>
-          <div className='w-full h-80 bg-white rounded-sm'></div>
-          <div className='w-full h-80 bg-white rounded-sm'></div>
-          <div className='w-full h-80 bg-white rounded-sm'></div>
-          <div className='w-full h-80 bg-white rounded-sm'></div>
-          <div className='w-full h-80 bg-white rounded-sm'></div>
-          <div className='w-full h-80 bg-white rounded-sm'></div>
-          <div className='w-full h-80 bg-white rounded-sm'></div>
-          <div className='w-full h-80 bg-white rounded-sm'></div>
-          <div className='w-full h-80 bg-white rounded-sm'></div>
         </div>
       </div>
     </>
