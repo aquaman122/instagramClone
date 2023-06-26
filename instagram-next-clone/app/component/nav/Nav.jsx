@@ -32,12 +32,12 @@ export default function Nav() {
           }
         </div>
 
-        <div>
-          <div className='p-3 hover:bg-stone-900 rounded-lg'>
-            <a className='xl:flex'>
-              <div className='hover:scale-110 ease-linear mt-28'><RxHamburgerMenu /></div>
-              <div className='flex items-end pl-4 text-base sm:max-xl:hidden'>더 보기</div>
-            </a>
+        <div className='pt-36'>
+          <div className='p-3 hover:bg-stone-900 rounded-lg'>        
+            <Link href="/plus" className='xl:flex'>
+              <RxHamburgerMenu />
+              <div className='pl-4 text-base sm:max-xl:hidden'>더 보기</div>
+            </Link>
           </div>
         </div>
 
