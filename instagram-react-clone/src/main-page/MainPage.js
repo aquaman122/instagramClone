@@ -1,4 +1,7 @@
-
+import Nav from "./nav/Nav";
+import Header from "./header/Header";
+import NavBar from "./navbar/NavBar";
+import Post from "./post/Post";
 
 const MainPage = () => {
   return (
