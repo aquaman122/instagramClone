@@ -1,10 +1,51 @@
+import { useState } from 'react';
 import Lottie from 'react-lottie-player';
 import animation from '../../images/animation/auth-animation.json';
 import Button from '../../component/button/Button';
 import { AiFillFacebook } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { auth } from '../../firebase/Firebase';
+import { signInWithEmailAndPassword } from '@firebase/auth';
 
 const Auth = () => {
+  const navigate = useNavigate();
+
+  const [loginUser, setLoginUser] = useState({
+    emailOrNumber: '',
+    password: ''
+  });
+
+  const loginEmailHanlder = (event) => {
+    setLoginUser({
+      ...loginUser,
+      emailOrNumber: event.target.value
+    })
+  }
+
+  const loginPasswordHanlder = (event) => {
+    setLoginUser({
+      ...loginUser,
+      password: event.target.value
+    })
+  }
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    signInWithEmailAndPassword(auth, loginUser.emailOrNumber, loginUser.password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+
+        navigate('/mainpage');
+      })
+      .catch((error) => {
+        alert(error);
+        setLoginUser({
+          emailOrNumber: '',
+          password: ''
+        })
+      })
+  }
 
   return (
     <>
@@ -25,14 +66,14 @@ const Auth = () => {
 
           <div className='flex flex-col items-center shrink-0 border border-stone-300 rounded-sm text-center box-border'>
             <div className='h-24 text-4xl mt-12'>Instagram</div>
-            <form className='flex flex-col items-center'>
+            <form onSubmit={submitHandler} className='flex flex-col items-center'>
               <div>
                 <div className='mb-2'>
-                  <input className='w-64 h-9 border border-gray-300 rounded-sm bg-gray-100 text-sm pl-2' placeholder='전화번호, 사용자 이름 또는 이메일' type="email"  required />
+                  <input onChange={loginEmailHanlder} className='w-64 h-9 border border-gray-300 rounded-sm bg-gray-100 text-sm pl-2' placeholder='전화번호, 사용자 이름 또는 이메일' type="email" value={loginUser.emailOrNumber} required />
                 </div>
 
                 <div className='mb-4'>
-                  <input className='w-64 h-9 border border-gray-300 rounded-sm bg-gray-100 text-sm pl-2' placeholder='비밀번호' type="password" id="password" name='password' required />
+                  <input onChange={loginPasswordHanlder} className='w-64 h-9 border border-gray-300 rounded-sm bg-gray-100 text-sm pl-2' placeholder='비밀번호' type="password" id="password" name='password' value={loginUser.password} required />
                 </div>            
                 <Button buttonText="로그인" />
                 <div className='flex items-center mt-4 mb-8'>

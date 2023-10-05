@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { AiFillFacebook } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { collection, addDoc } from 'firebase/firestore';
-import db from '../../firebase/Firebase';
+import { db, auth } from '../../firebase/Firebase';
+import { createUserWithEmailAndPassword } from '@firebase/auth';
 
 const SignUp = () => {
+  
   const navigate = useNavigate();
 
   const [inputUser, setInputUser] = useState({
@@ -12,14 +14,23 @@ const SignUp = () => {
     userName: '',
     userNickName: '',
     password: '',
-  })
+  });
 
   const SubmitHandler = async (event) => {
     event.preventDefault();
 
+    createUserWithEmailAndPassword(auth, inputUser.numberOrEmail, inputUser.password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+
+        console.log(user);
+      })
+      .catch((error) => {
+        
+      })
+
     try {
       await addDoc(collection(db, "users"), {
-        numberOrEmail: inputUser.numberOrEmail,
         userName: inputUser.userName,
         userNickName: inputUser.userNickName,
       });

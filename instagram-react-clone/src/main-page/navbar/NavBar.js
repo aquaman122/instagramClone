@@ -1,9 +1,10 @@
 import users from "../MainData";
-import db from '../../firebase/Firebase';
+import { db } from '../../firebase/Firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import { useEffect } from "react";
 
 const NavBar = () => {
+
 
   return (
     <>
