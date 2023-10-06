@@ -10,8 +10,8 @@ const SignUp = () => {
 
   const [inputUser, setInputUser] = useState({
     numberOrEmail: '',
-    userName: '',
-    userNickName: '',
+    username: '',
+    usernickname: '',
     password: '',
   });
 
@@ -21,31 +21,31 @@ const SignUp = () => {
     createUserWithEmailAndPassword(auth, inputUser.numberOrEmail, inputUser.password)
       .then((userCredential) => {
         const user = userCredential.user;
-
-        const userId = user.uid;
-        // 새 문서추가 문서 Id auth.js로 전달
-        addNewDocumemt(userId);
+        
+        addUserToFirestore();
       })
       .catch((error) => {
         
       });
-    navigate('/');
   }
 
-  const addNewDocumemt = async (userId) => {
+  const addUserToFirestore = async () => {
     try {
       const docRef = await addDoc(collection(db, 'users'), {
-        userId: userId, // 사용자 ID 추가
         numberOrEmail: inputUser.numberOrEmail,
-        userName: inputUser.userName,
-        userNickName: inputUser.userNickName
+        username: inputUser.username,
+        usernickname: inputUser.usernickname
       });
 
-      navigate('/', { state: { documentId: docRef.id } });
+      const documentId = docRef.id;
+
+      navigate('/', { state: { documentId: documentId } });
     } catch (error) {
       console.error(error);
     }
   }
+
+  
 
   return (
     <>

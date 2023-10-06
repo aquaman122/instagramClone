@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 const MainPage = () => {
   const location = useLocation();
   const documentId = location.state && location.state.documentId;
-  
+
   return (
     <>
       <article className='flex self-start bg-black h-max'>

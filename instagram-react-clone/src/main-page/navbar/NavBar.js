@@ -1,26 +1,34 @@
-import { useState } from "react";
+import { doc, getDoc } from "@firebase/firestore";
+import { useEffect, useState } from "react";
+import { db } from '../../firebase/Firebase';
 import users from "../MainData";
 
 const NavBar = (props) => {
   const [username, setUsername] = useState('');
   const [userNickname, setUserNickname] = useState('');
+  const documentId = props.documentId;
+  console.log(documentId);
+
+  useEffect(() => {
+    const getUserDataById = async (documentId) => {
+      try {
+        const userDocRef = doc(db, 'users', documentId);
+        const userDocSnapshot = await getDoc(userDocRef);
   
-  // useEffect(() => {
-  //   const fetchUser = async (userId) => {
-  //     try {
-  //       const userDocSnapshot = await getDoc(doc(db, 'users', userId));
+        if (userDocSnapshot.exists()) {
+          const userData = userDocSnapshot.data();
+          setUsername(userData.username);
+          setUserNickname(userData.usernickname);
+        } else {
+          console.log('Document not found.');
+        }
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    }
 
-  //       if (userDocSnapshot.exists()) {
-  //         const userData = userDocSnapshot.data();
-  //         setUserNickname(userData.userNickName);
-  //         setUsername(userData.userName);
-  //       }
-  //     } catch (error) {
-
-  //     }
-  //   }
-  //   fetchUser(props.documentId);
-  // }, []);
+    getUserDataById(documentId);
+  }, []);
 
   return (
     <>
