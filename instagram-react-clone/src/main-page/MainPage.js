@@ -2,8 +2,12 @@ import Nav from "./nav/Nav";
 import Header from "./header/Header";
 import NavBar from "./navbar/NavBar";
 import Post from "./post/Post";
+import { useLocation } from 'react-router-dom';
 
 const MainPage = () => {
+  const location = useLocation();
+  const documentId = location.state && location.state.documentId;
+  
   return (
     <>
       <article className='flex self-start bg-black h-max'>
@@ -19,7 +23,7 @@ const MainPage = () => {
             }
           </section>
           </div>
-          <NavBar />
+          <NavBar documentId={documentId} />
         </div>
       </article>
     </>

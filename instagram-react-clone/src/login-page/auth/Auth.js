@@ -6,10 +6,13 @@ import { AiFillFacebook } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase/Firebase';
 import { signInWithEmailAndPassword } from '@firebase/auth';
+import { useLocation } from 'react-router-dom';
 
 const Auth = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
+  const documentId = location.state && location.state.documentId;
   const [loginUser, setLoginUser] = useState({
     emailOrNumber: '',
     password: ''
@@ -29,6 +32,8 @@ const Auth = () => {
     })
   }
 
+
+
   const submitHandler = (event) => {
     event.preventDefault();
 
@@ -36,7 +41,7 @@ const Auth = () => {
       .then((userCredential) => {
         const user = userCredential.user;
 
-        navigate('/mainpage');
+        navigate('/mainpage', { state: { documentId: documentId }});
       })
       .catch((error) => {
         alert(error);

@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { AiFillFacebook } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
-import { collection, addDoc } from 'firebase/firestore';
+import { addDoc, collection } from 'firebase/firestore';
 import { db, auth } from '../../firebase/Firebase';
 import { createUserWithEmailAndPassword } from '@firebase/auth';
 
 const SignUp = () => {
-  
   const navigate = useNavigate();
 
   const [inputUser, setInputUser] = useState({
@@ -23,21 +22,29 @@ const SignUp = () => {
       .then((userCredential) => {
         const user = userCredential.user;
 
-        console.log(user);
+        const userId = user.uid;
+        // 새 문서추가 문서 Id auth.js로 전달
+        addNewDocumemt(userId);
       })
       .catch((error) => {
         
-      })
-
-    try {
-      await addDoc(collection(db, "users"), {
-        userName: inputUser.userName,
-        userNickName: inputUser.userNickName,
       });
-    } catch {
-    }
-
     navigate('/');
+  }
+
+  const addNewDocumemt = async (userId) => {
+    try {
+      const docRef = await addDoc(collection(db, 'users'), {
+        userId: userId, // 사용자 ID 추가
+        numberOrEmail: inputUser.numberOrEmail,
+        userName: inputUser.userName,
+        userNickName: inputUser.userNickName
+      });
+
+      navigate('/', { state: { documentId: docRef.id } });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (

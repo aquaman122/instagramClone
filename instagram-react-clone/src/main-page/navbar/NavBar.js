@@ -1,10 +1,26 @@
+import { useState } from "react";
 import users from "../MainData";
-import { db } from '../../firebase/Firebase';
-import { doc, getDoc } from 'firebase/firestore';
-import { useEffect } from "react";
 
-const NavBar = () => {
+const NavBar = (props) => {
+  const [username, setUsername] = useState('');
+  const [userNickname, setUserNickname] = useState('');
+  
+  // useEffect(() => {
+  //   const fetchUser = async (userId) => {
+  //     try {
+  //       const userDocSnapshot = await getDoc(doc(db, 'users', userId));
 
+  //       if (userDocSnapshot.exists()) {
+  //         const userData = userDocSnapshot.data();
+  //         setUserNickname(userData.userNickName);
+  //         setUsername(userData.userName);
+  //       }
+  //     } catch (error) {
+
+  //     }
+  //   }
+  //   fetchUser(props.documentId);
+  // }, []);
 
   return (
     <>
@@ -15,8 +31,8 @@ const NavBar = () => {
           <img src={users[7].image_url} className="w-16 h-16 rounded-full object-cover" alt="" />
         </div>
         <div className='w-9/12 flex flex-col justify-center pl-4 text-sm text-white'>
-          <div></div>
-          <div></div>
+          <div>{username}</div>
+          <div>{userNickname}</div>
         </div>
         <div className='w-7 flex justify-center items-center text-xs text-blue-500'>전환</div>
       </div>
