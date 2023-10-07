@@ -7,7 +7,6 @@ const NavBar = (props) => {
   const [username, setUsername] = useState('');
   const [userNickname, setUserNickname] = useState('');
   const documentId = props.documentId;
-  console.log(documentId);
 
   useEffect(() => {
     const getUserDataById = async (documentId) => {

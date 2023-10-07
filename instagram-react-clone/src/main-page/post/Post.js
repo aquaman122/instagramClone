@@ -43,16 +43,19 @@ export default function Post(props) {
           </div>
         </div>
         <div className='px-2'>3 hours ago</div>
-        <div className='flex items-center px-2 py-2 mt-1 '>
-          <div className='w-full'>
-            <input type="text" 
-              name={`comment ${props.index}`} 
-              id={`comment ${props.index}`} 
-              className="w-full outline-none bg-black text-sm"
-              placeholder='댓글 달기...'
-            />
+        <form>
+          <div className='flex items-center px-2 py-2 mt-1 '>
+            <div className='w-full'>
+              <input type="text" 
+                
+                name={`comment ${props.index}`} 
+                id={`comment ${props.index}`} 
+                className="w-full outline-none bg-black text-sm"
+                placeholder='댓글 달기...'
+              />
+            </div>
           </div>
-        </div>
+        </form>
         <div className='mt-3 border-t border-gray-600'></div>
       </div>
     </>
